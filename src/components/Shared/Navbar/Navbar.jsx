@@ -12,7 +12,7 @@ const Navbar = () => {
             .catch()
     }
     return (
-        <div className=" flex items-center justify-between px-10 py-4 border-b-2 border-[#f9bf00]">
+        <div className=" flex items-center justify-between px-10 py-4 bg-white z-20">
             <div className='text-2xl md:hidden'>
                 <MdMenu></MdMenu>
                 <MdClose className='hidden'></MdClose>

@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const SignUp = () => {
-    const { createUser, setDisplayName, signIn } = useContext(AuthContext);
+    const { createUser, signIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
+
     const navigate = useNavigate();
     const handleSignUp = event => {
         event.preventDefault();
@@ -17,7 +19,6 @@ const SignUp = () => {
         createUser(email, password)
             .then(user => {
                 console.log(user.user);
-                setDisplayName(name);
                 signIn(email, password)
                     .then(user => {
                         console.log(user.user);
@@ -25,6 +26,7 @@ const SignUp = () => {
                     })
                     .catch(error => {
                         console.log(error.message);
+                        setError(error.message);
                     })
             })
             .catch(error => {
@@ -51,19 +53,26 @@ const SignUp = () => {
                             </label>
                         </div>
                         <div>
-                            <label className="label">
-                                <span className="font-bold">Your Email</span>
-                            </label>
-                            <label>
-                                <input type="email" name="email" placeholder="Your Email" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" required/>
-                            </label>
+                            <div>
+                                <label className="label">
+                                    <span className="font-bold">Your Email</span>
+                                </label>
+                                <label>
+                                    <input type="email" name="email" placeholder="Your Email" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" />
+                                </label>
+                            </div>
+                            {
+                                error == 'Firebase: Error (auth/email-already-in-use).' ?
+                                    <span className="text-sm text-red-400"> Email Already In Used.</span> :
+                                    <span className="text-sm text-gray-400"> We will never share your email with anyone else.</span>
+                            }
                         </div>
                         <div>
                             <label className="label">
                                 <span className="font-bold">Your Password</span>
                             </label>
                             <label>
-                                <input type="password" name="password" placeholder="Your Password" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" required/>
+                                <input type="password" name="password" placeholder="Your Password" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" required />
                             </label>
                         </div>
                         <div>
@@ -71,7 +80,7 @@ const SignUp = () => {
                                 <span className="font-bold">Your Photo URL</span>
                             </label>
                             <label>
-                                <input type="text" name="photo" placeholder="Your Photo URL" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" required/>
+                                <input type="text" name="photo" placeholder="Your Photo URL" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" required />
                             </label>
                         </div>
                         <h2 className="text-sm mt-3">Already Have an Account? Please <Link to='/login' className="text-[#f9bf00]">Login</Link></h2>
