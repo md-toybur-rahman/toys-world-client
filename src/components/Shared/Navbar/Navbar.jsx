@@ -1,8 +1,16 @@
 import './Navbar.css'
 import { Link, NavLink } from "react-router-dom";
 import { MdMenu, MdClose } from "react-icons/md";
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navbar = () => {
+    const { logOut, user } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
     return (
         <div className=" flex items-center justify-between px-10 py-4 border-b-2 border-[#f9bf00]">
             <div className='text-2xl md:hidden'>
@@ -29,8 +37,16 @@ const Navbar = () => {
                 <NavLink className={({ isActive }) => isActive ? 'text-[#f9bf00]' : 'hover:text-[#f9bf00] duration-300'} to='/blog'>Login</NavLink>
             </div>
             <div className='flex items-center gap-7'>
-                <img className='w-[40px] md:w-[50px]' src="https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/user-profile-icon.png" alt="" />
-                <Link to='/login'><button className='btn-custom hidden md:block'>Login</button></Link>
+                {
+                    user ?
+                        <img className='w-[40px] md:w-[50px]' src="https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/user-profile-icon.png" alt="" /> :
+                        ''
+                }
+                {
+                    user ?
+                        <Link ><button onClick={handleLogOut} className='btn-custom hidden md:block'>Log Out</button></Link> :
+                        <Link to='/login'><button className='btn-custom hidden md:block'>Login</button></Link>
+                }
             </div>
         </div>
     );

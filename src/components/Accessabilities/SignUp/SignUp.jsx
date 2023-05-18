@@ -1,23 +1,36 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, setDisplayName, signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        const photo = form.photo.value;
+        console.log(name, email, password, photo);
         createUser(email, password)
-        .then(user => {
-            console.log(user.user);
-            user.user.displayName = name;
-        })
-        .catch()
+            .then(user => {
+                console.log(user.user);
+                setDisplayName(name);
+                signIn(email, password)
+                    .then(user => {
+                        console.log(user.user);
+                        navigate('/');
+                    })
+                    .catch(error => {
+                        console.log(error.message);
+                    })
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+
     }
     return (
         <div className="my-20 mx-10">
@@ -34,7 +47,7 @@ const SignUp = () => {
                                 <span className="font-bold">Your Name</span>
                             </label>
                             <label>
-                                <input type="text" name="name" placeholder="Your Name" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" />
+                                <input type="text" name="name" placeholder="Your Name" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" required />
                             </label>
                         </div>
                         <div>
@@ -42,7 +55,7 @@ const SignUp = () => {
                                 <span className="font-bold">Your Email</span>
                             </label>
                             <label>
-                                <input type="email" name="email" placeholder="Your Email" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" />
+                                <input type="email" name="email" placeholder="Your Email" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" required/>
                             </label>
                         </div>
                         <div>
@@ -50,7 +63,15 @@ const SignUp = () => {
                                 <span className="font-bold">Your Password</span>
                             </label>
                             <label>
-                                <input type="password" name="password" placeholder="Your Password" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" />
+                                <input type="password" name="password" placeholder="Your Password" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" required/>
+                            </label>
+                        </div>
+                        <div>
+                            <label className="label">
+                                <span className="font-bold">Your Photo URL</span>
+                            </label>
+                            <label>
+                                <input type="text" name="photo" placeholder="Your Photo URL" className="h-[50px] rounded-lg px-4 w-[350px] bg-gray-200" required/>
                             </label>
                         </div>
                         <h2 className="text-sm mt-3">Already Have an Account? Please <Link to='/login' className="text-[#f9bf00]">Login</Link></h2>
