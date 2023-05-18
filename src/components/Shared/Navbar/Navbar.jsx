@@ -12,7 +12,7 @@ const Navbar = () => {
             .catch()
     }
     return (
-        <div className=" flex items-center justify-between px-10 py-4 bg-white z-20">
+        <div className=" flex items-center justify-between px-10 py-4 bg-white">
             <div className='text-2xl md:hidden'>
                 <MdMenu></MdMenu>
                 <MdClose className='hidden'></MdClose>
@@ -37,11 +37,7 @@ const Navbar = () => {
                 <NavLink className={({ isActive }) => isActive ? 'text-[#f9bf00]' : 'hover:text-[#f9bf00] duration-300'} to='/blog'>Login</NavLink>
             </div>
             <div className='flex items-center gap-7'>
-                {
-                    user ?
-                        <img className='w-[40px] md:w-[50px]' src="https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/user-profile-icon.png" alt="" /> :
-                        ''
-                }
+            <img className='rounded-full w-[60px]' src={!user?.photoURL? "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/user-profile-icon.png" : user.photoURL} alt="" />
                 {
                     user ?
                         <Link ><button onClick={handleLogOut} className='btn-custom hidden md:block'>Log Out</button></Link> :

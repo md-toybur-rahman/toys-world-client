@@ -5,7 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignUp } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const handleLogin = event => {
@@ -23,6 +23,14 @@ const Login = () => {
                 console.log(error.message);
                 setError(error.message);
             })
+    }
+    const handleGoogleSignUp = () => {
+        googleSignUp()
+            .then(user => {
+                console.log(user.user);
+                navigate('/');
+            })
+            .catch()
     }
     return (
         <div className="my-20 mx-10">
@@ -69,10 +77,10 @@ const Login = () => {
                         <div className="flex justify-center mt-5">
                             <input type="submit" className='btn-custom' value='Login' />
                         </div>
-                        <div className="flex justify-center mb-5">
-                            <button className="btn-custom flex items-center gap-3 justify-center"><FaGoogle className="text-xl"></FaGoogle> Sign Up With Google</button>
-                        </div>
                     </form>
+                </div>
+                <div className="flex justify-center my-5">
+                    <button onClick={handleGoogleSignUp} className="btn-custom flex items-center gap-3 justify-center"><FaGoogle className="text-xl"></FaGoogle> Sign Up With Google</button>
                 </div>
             </div>
         </div>
