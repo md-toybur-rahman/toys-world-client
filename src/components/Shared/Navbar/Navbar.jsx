@@ -1,10 +1,10 @@
 import './Navbar.css'
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdMenu, MdClose } from "react-icons/md";
 
 const Navbar = () => {
     return (
-        <div className=" flex items-center justify-between px-10 py-4 bg-sky-200">
+        <div className=" flex items-center justify-between px-10 py-4 border-b-2 border-[#ff9000]">
             <div className='text-2xl md:hidden'>
                 <MdMenu></MdMenu>
                 <MdClose className='hidden'></MdClose>
@@ -30,7 +30,7 @@ const Navbar = () => {
             </div>
             <div className='flex items-center gap-7'>
                 <img className='w-[40px] md:w-[50px]' src="https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/user-profile-icon.png" alt="" />
-                <button className='btn-custom hidden md:block'>Login</button>
+                <Link to='/login'><button className='btn-custom hidden md:block'>Login</button></Link>
             </div>
         </div>
     );
