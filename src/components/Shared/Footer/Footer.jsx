@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='border-t-2 border-[#ff9000] px-10 md:px-28 py-20 text-center md:text-start'>
+        <div className='border-t-2 border-[#f9bf00] px-10 md:px-28 py-20 text-center md:text-start'>
             <div className='flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-0 justify-between'>
                 <div className='flex flex-col items-center md:items-start gap-5 mb-10'>
                     <div className="logo flex gap-2 items-center mb-3">
                         <img className='w-[40px] md:w-[50px]' src="https://i.ibb.co/KxN1BZH/kindpng-3765565-1.png" alt="" />
-                        <h1 className='text-2xl md:text-3xl font-extrabold text-'>T<span className='text-[#ff9000]'>O</span>YS W<span className='text-[#ff9000]'>O</span>RLD</h1>
+                        <h1 className='text-2xl md:text-3xl font-extrabold text-'>T<span className='text-[#f9bf00]'>O</span>YS W<span className='text-[#f9bf00]'>O</span>RLD</h1>
                     </div>
                     <div className='flex flex-col gap-7 text-md md:text-xl font-bold'>
-                        <a href='http://facebook.com' target='blank' className='flex gap-3 items-center'><FaFacebook className=' text-[#ff9000] text-2xl md:text-3xl'></FaFacebook>Facebook</a>
-                        <a href='http://instagram.com' target='blank' className='flex gap-3 items-center'><FaInstagram className=' text-[#ff9000] text-2xl md:text-3xl'></FaInstagram>Instagram</a>
-                        <a href='http://twitter.com' target='blank' className='flex gap-3 items-center'><FaTwitter className=' text-[#ff9000] text-2xl md:text-3xl'></FaTwitter>Twitter</a>
+                        <a href='http://facebook.com' target='blank' className='flex gap-3 items-center'><FaFacebook className=' text-[#f9bf00] text-2xl md:text-3xl'></FaFacebook>Facebook</a>
+                        <a href='http://instagram.com' target='blank' className='flex gap-3 items-center'><FaInstagram className=' text-[#f9bf00] text-2xl md:text-3xl'></FaInstagram>Instagram</a>
+                        <a href='http://twitter.com' target='blank' className='flex gap-3 items-center'><FaTwitter className=' text-[#f9bf00] text-2xl md:text-3xl'></FaTwitter>Twitter</a>
                     </div>
                 </div>
                 <div>

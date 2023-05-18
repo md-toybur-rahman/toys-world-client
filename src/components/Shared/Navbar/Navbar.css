@@ -1,12 +1,13 @@
-.btn-custom{
-    background-color: #ff9000;
+.btn-custom {
+    background-color: #f9bf00;
     padding: 10px 20px;
     border-radius: 10px;
     font-weight: 700;
     font-size: 16px;
     transition: .3s ease;
 }
-.btn-custom:hover{
-    color: #ff9000;
+
+.btn-custom:hover {
+    color: #f9bf00;
     background-color: black;
 }
