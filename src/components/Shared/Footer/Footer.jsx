@@ -12,14 +12,14 @@ const Footer = () => {
                         <h1 className='text-2xl md:text-3xl font-extrabold text-'>T<span className='text-[#f9bf00]'>O</span>YS W<span className='text-[#f9bf00]'>O</span>RLD</h1>
                     </div>
                     <div className='flex flex-col gap-7 text-md md:text-xl font-bold'>
-                        <a href='http://facebook.com' target='blank' className='flex gap-3 items-center'><FaFacebook className=' text-[#f9bf00] text-2xl md:text-3xl'></FaFacebook>Facebook</a>
-                        <a href='http://instagram.com' target='blank' className='flex gap-3 items-center'><FaInstagram className=' text-[#f9bf00] text-2xl md:text-3xl'></FaInstagram>Instagram</a>
-                        <a href='http://twitter.com' target='blank' className='flex gap-3 items-center'><FaTwitter className=' text-[#f9bf00] text-2xl md:text-3xl'></FaTwitter>Twitter</a>
+                        <a href='http://facebook.com' target='blank' className='flex gap-3 items-center'><FaFacebook className=' text-[#f9bf00] text-xl md:text-2xl'></FaFacebook>Facebook</a>
+                        <a href='http://instagram.com' target='blank' className='flex gap-3 items-center'><FaInstagram className=' text-[#f9bf00] text-xl md:text-2xl'></FaInstagram>Instagram</a>
+                        <a href='http://twitter.com' target='blank' className='flex gap-3 items-center'><FaTwitter className=' text-[#f9bf00] text-2xl md:text-xl'></FaTwitter>Twitter</a>
                     </div>
                 </div>
                 <div>
-                    <h2 className='text-xl md:text-2xl font-bold mb-5'>ABOUT</h2>
-                    <div className='flex flex-col text-md md:text-xl gap-3'>
+                    <h2 className='text-lg md:text-xl font-bold mb-5'>ABOUT</h2>
+                    <div className='flex flex-col text-md md:text-lg gap-3'>
                         <Link>History</Link>
                         <Link>Wishlist</Link>
                         <Link>Services</Link>
@@ -28,8 +28,8 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <h2 className='text-xl md:text-2xl font-bold mb-5'>SUPPORT</h2>
-                    <div className='flex flex-col text-md md:text-xl gap-3'>
+                    <h2 className='text-lg md:text-xl font-bold mb-5'>SUPPORT</h2>
+                    <div className='flex flex-col text-md md:text-lg gap-3'>
                         <Link>Chat Support</Link>
                         <Link>Email Support</Link>
                         <Link>Terms of Support</Link>
@@ -38,12 +38,12 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <h2 className='text-xl md:text-2xl font-bold mb-5'>CONTACT US</h2>
+                    <h2 className='text-xl md:text-xl font-bold mb-5'>CONTACT US</h2>
                     <div className='flex flex-col gap-3'>
-                        <Link className='flex items-center gap-3 text-md md:text-xl text-start'><FaHome></FaHome> Shop no - 100, Boshundhara, <br /> Panthapath, Dhaka</Link>
-                        <Link className='flex items-center gap-3 text-md md:text-xl'><FaPhone></FaPhone> 0000 - 123 - 45678</Link>
-                        <Link className='flex items-center gap-3 text-md md:text-xl'><FaClock></FaClock> 9.00 AM - 6.00 PM</Link>
-                        <Link className='flex items-center gap-3 text-md md:text-xl'><MdMail></MdMail>demo@example.com</Link>
+                        <Link className='flex items-center gap-3 text-md md:text-lg text-start'><FaHome></FaHome> Shop no - 100, Boshundhara, <br /> Panthapath, Dhaka</Link>
+                        <Link className='flex items-center gap-3 text-md md:text-lg'><FaPhone></FaPhone> 0000 - 123 - 45678</Link>
+                        <Link className='flex items-center gap-3 text-md md:text-lg'><FaClock></FaClock> 9.00 AM - 6.00 PM</Link>
+                        <Link className='flex items-center gap-3 text-md md:text-lg'><MdMail></MdMail>demo@example.com</Link>
                     </div>
                 </div>
             </div>
