@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const AddNewToy = () => {
-    const { user, loading } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleAddItem = event => {
         event.preventDefault();
         const form = event.target;
@@ -14,10 +18,11 @@ const AddNewToy = () => {
         const sub_category = form.sub_category.value;
         const price = form.price.value;
         const available_quantity = form.quantity.value;
-        const photo = form.photo.value;
+        const picture = form.photo.value;
+        const rating = form.rating.value;
         const description = form.description.value;
-        const newToy = { email, seller_name, toy_name, sub_category, price, available_quantity, photo, description }
-        console.log(email, seller_name, toy_name, sub_category, price, available_quantity, photo);
+        const newToy = { email, seller_name, toy_name, sub_category, price, available_quantity, picture, rating, description }
+
         fetch('https://toys-world-server.vercel.app/toys', {
             method: 'POST',
             headers: {
@@ -29,17 +34,17 @@ const AddNewToy = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('Created successfully')
+                    Swal.fire({
+                        title: 'Success!',
+                        text: `${toy_name} Created Successfully`,
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    navigate('/myToys');
                 }
             })
     }
 
-
-
-
-    if (loading) {
-        return <h2>Loading...........</h2>
-    }
     return (
         <div className="mb-20">
             <div className="mt-10 border-2 border-[#f9bf00] w-2/3 mx-auto py-10 rounded-lg">
@@ -119,14 +124,24 @@ const AddNewToy = () => {
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div className="flex flex-col md:flex-row gap-5 md:gap-10">
                             <div>
                                 <label className="label">
                                     <span className="font-bold">Photo URL</span>
                                 </label>
                                 <label>
-                                    <input type="text" name="photo" placeholder="Photo URL" className="h-[50px] rounded-lg px-4 md:w-[740px] w-[280px]  bg-gray-200" />
+                                    <input type="text" name="photo" placeholder="Photo URL" className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" />
                                 </label>
+                            </div>
+                            <div>
+                                <div>
+                                    <label className="label">
+                                        <span className="font-bold">Rating</span>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="rating" placeholder="Product Rating" className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" required />
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div>

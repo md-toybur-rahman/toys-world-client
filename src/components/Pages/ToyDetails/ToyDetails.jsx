@@ -1,10 +1,15 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 
 
 const ToyDetails = () => {
     const toy = useLoaderData();
     const { toy_name, picture, price, seller_name, sub_category, available_quantity, description } = toy[0];
-
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/'
+    const handleRoute = () => {
+        navigate(from, {replace: true});
+    }
     return (
         <div className="mt-20 md:mx-20 mx-5">
             <div className="flex flex-col md:flex-row items-center justify-between w-full">
@@ -28,7 +33,7 @@ const ToyDetails = () => {
                 </div>
             </div>
             <div className="flex justify-center mt-20 mb-20">
-                <Link to='/allToys'><button className="btn-custom">Go Back</button></Link>
+                <button onClick={handleRoute} className="btn-custom">Go Back</button>
             </div>
         </div>
     );

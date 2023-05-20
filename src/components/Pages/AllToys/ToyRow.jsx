@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 const ToyRow = ({ toy }) => {
     const { _id, toy_name, picture, price, seller_name, sub_category, available_quantity } = toy;
+    const location = useLocation();
     return (
         <tr>
             <td>
@@ -28,7 +29,7 @@ const ToyRow = ({ toy }) => {
             <td>{price}</td>
             <td className="pl-20">{available_quantity}</td>
             <th>
-                <Link to={`/toyDetails/${_id}`}><button className="btn btn-active btn-ghost btn-xs ml-4">Details</button></Link>
+                <Link to={`/toyDetails/${_id}`} state={{from: location}}><button className="btn btn-active btn-ghost btn-xs ml-4">Details</button></Link>
 
             </th>
         </tr>

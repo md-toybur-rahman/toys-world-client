@@ -38,12 +38,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/updateToy/:id',
-                element: <UpdateToy></UpdateToy>,
+                element: <PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://toys-world-server.vercel.app/toyDetails/${params.id}`)
             },
             {
                 path: '/toyDetails/:id',
-                element: <ToyDetails></ToyDetails>,
+                element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://toys-world-server.vercel.app/toyDetails/${params.id}`)
             },
             {
