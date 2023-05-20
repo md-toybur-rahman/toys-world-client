@@ -5,14 +5,14 @@ import MyToysRow from "./MyToysRow";
 
 
 const MyToys = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys?email=${user?.email}`)
-        .then(res => res.json())
-        .then(data => {
-            setToys(data);
-        })
+        fetch(`https://toys-world-server.vercel.app/myToys?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setToys(data);
+            })
     }, [user])
     console.log(toys);
     return (

@@ -11,6 +11,7 @@ import AddNewToy from "../Pages/AddNewToy/AddNewToy";
 import MyToys from "../Pages/MyToys/MyToys";
 import PrivateRoute from "./PrivateRoute";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
+import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/allToys',
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/toys')
+                loader: () => fetch('https://toys-world-server.vercel.app/toys')
             },
             {
                 path: '/myToys',
@@ -33,12 +34,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addToy',
-                element: <AddNewToy></AddNewToy>
+                element: <PrivateRoute><AddNewToy></AddNewToy></PrivateRoute>
             },
             {
-                path: '/toyDetails:id',
+                path: '/updateToy/:id',
+                element: <UpdateToy></UpdateToy>,
+                loader: ({ params }) => fetch(`https://toys-world-server.vercel.app/toyDetails/${params.id}`)
+            },
+            {
+                path: '/toyDetails/:id',
                 element: <ToyDetails></ToyDetails>,
-                
+                loader: ({ params }) => fetch(`https://toys-world-server.vercel.app/toyDetails/${params.id}`)
             },
             {
                 path: '/blog',

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const MyToysRow = ({ toy }) => {
-    const { toy_name, picture, price, seller_name, sub_category, available_quantity } = toy;
+    const { _id, toy_name, picture, price, seller_name, sub_category, available_quantity } = toy;
     return (
         <tr className="border-b-2 ">
             <td>
@@ -28,8 +28,8 @@ const MyToysRow = ({ toy }) => {
             <td>{price}</td>
             <td className="pl-20">{available_quantity}</td>
             <td className="flex items-center justify-center mt-3">               
-                <Link to='/toyDetails'><button className="btn btn-active btn-ghost btn-xs ml-4">Details</button></Link>
-                <button className="btn btn-warning btn-xs ml-4">Edit</button>
+                <Link to={`/toyDetails/${_id}`}><button className="btn btn-active btn-ghost btn-xs ml-4">Details</button></Link>
+                <Link to={`/updateToy/${_id}`}><button className="btn btn-warning btn-xs ml-4">Edit</button></Link>
             </td>
         </tr>
     );

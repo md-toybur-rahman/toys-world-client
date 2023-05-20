@@ -49,12 +49,24 @@ const Navbar = () => {
                 <NavLink className={({ isActive }) => isActive ? 'text-[#f9bf00]' : 'hover:text-[#f9bf00] duration-300'} to='/blog'>Login</NavLink>
             </div>
             <div className='flex items-center gap-7'>
-                <img className='rounded-full w-[40px] md:w-[60px]' src={!user?.photoURL ? "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/user-profile-icon.png" : user.photoURL} alt="" />
+
                 {
-                    user ?
-                        <Link ><button onClick={handleLogOut} className='btn-custom hidden md:block'>Log Out</button></Link> :
-                        <Link to='/login'><button className='btn-custom hidden md:block'>Login</button></Link>
+                    user?.displayName ?
+                        <div className="dropdown dropdown-left dropdown-center dropdown-hover">
+                            <label tabIndex={0}><img className='rounded-full w-[40px] md:w-[60px]' src={!user?.photoURL ? "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/user-profile-icon.png" : user.photoURL} alt="" /></label>
+                            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                <h2>{user?.displayName}</h2>
+                            </ul>
+                        </div> :
+                        <></>
                 }
+                <div>
+                    {
+                        user ?
+                            <Link ><button onClick={handleLogOut} className='btn-custom hidden md:block'>Log Out</button></Link> :
+                            <Link to='/login'><button className='btn-custom hidden md:block'>Login</button></Link>
+                    }
+                </div>
             </div>
         </div>
     );

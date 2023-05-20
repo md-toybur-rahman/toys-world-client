@@ -9,22 +9,22 @@ const ShopByCategory = () => {
     const [puppet, setPuppet] = useState([]);
     const [puzzle, setPuzzle] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/toys/bath')
+        fetch('https://toys-world-server.vercel.app/toys/bath')
             .then(res => res.json())
             .then(data => setBath(data))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/toys/plush')
+        fetch('https://toys-world-server.vercel.app/toys/plush')
             .then(res => res.json())
             .then(data => setPlush(data))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/toys/puppet')
+        fetch('https://toys-world-server.vercel.app/toys/puppet')
             .then(res => res.json())
             .then(data => setPuppet(data))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/toys/puzzle')
+        fetch('https://toys-world-server.vercel.app/toys/puzzle')
             .then(res => res.json())
             .then(data => setPuzzle(data))
     }, [])
