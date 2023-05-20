@@ -15,7 +15,22 @@ const AddNewToy = () => {
         const price = form.price.value;
         const quantity = form.quantity.value;
         const photo = form.photo.value;
+        const newToy = {email, seller_name, toy_name, sub_category, price, quantity, photo}
         console.log(email, seller_name, toy_name, sub_category, price, quantity, photo);
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newToy)
+            
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.acknowledged){
+                alert('Created successfully')
+            }
+        })
     }
 
 
