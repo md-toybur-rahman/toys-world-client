@@ -5,7 +5,7 @@ const ProductCard = ({ item }) => {
     const { _id, picture, toy_name, price, rating } = item;
     const location = useLocation();
     return (
-        <div>
+        <div data-aos="zoom-in" data-aos-duration="1000">
             <div className="card w-52 md:w-96 bg-base-100 shadow-xl border-2 border-[#f9bf00] rounded-lg">
                 <figure className="p-2">
                     {

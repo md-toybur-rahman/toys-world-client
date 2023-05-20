@@ -10,10 +10,10 @@ const Services = () => {
                 <h1 className="text-3xl md:text-5xl text-[#f9bf00] font-bold mb-7">The Finest Toy</h1>
                 <p className="text-md md:text-xl text-gray-500">Proin sed libero enim faucibus turpis, amet facilisis magna etiam tempore. Porttitor massa id neque aliquam vestibulum morbis, cras sed felis eget velit aliquet sagittis id consectetur purus pharetra magna placerate.</p>
                 <div className="grid md:grid-cols-2 gap-4 mt-7 md:text-lg font-bold">
-                    <h1>🧿 Creative toys</h1>
-                    <h1>🧿 Electronic toys</h1>
-                    <h1>🧿 Educational toys</h1>
-                    <h1>🧿 Construction toys</h1>
+                    <div className="flex items-center gap-3"><div data-aos="flip-right">🧿</div> Creative toys</div>
+                    <div className="flex items-center gap-3"><div data-aos="flip-right">🧿</div> Electronic toys</div>
+                    <div className="flex items-center gap-3"><div data-aos="flip-right">🧿</div> Educational toys</div>
+                    <div className="flex items-center gap-3"><div data-aos="flip-right">🧿</div> Construction toys</div>
                 </div>
             </div>
         </div>
