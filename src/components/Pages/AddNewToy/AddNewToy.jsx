@@ -95,7 +95,7 @@ const AddNewToy = () => {
                                     <label>
                                         {/* <input type="text" name="sub_category" placeholder="Sub Category" className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" required /> */}
                                         <select className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" id="" name="sub_category" required>
-                                            <option value="" selected disabled hidden>Chose A Category</option>
+                                            <option value="Chose A Category"  disabled hidden selected>Chose A Category</option>
                                             <option value="Bath">Bath</option>
                                             <option value="Plush">Plush</option>
                                             <option value="Puppet">Puppet</option>
