@@ -30,9 +30,9 @@ const ShopByCategory = () => {
     }, [])
     return (
         <div className="mt-28">
-            <div className="text-center">
-                <h1 className="text-5xl font-bold text-[#f9bf00]">Categories</h1>
-                <p className="text-xl mt-4 text-gray-500">Active toys for smart and active kids. Bring fun and non-stop<br />  learning for your little ones.</p>
+            <div className="text-center p-5">
+                <h1 className="text-3xl md:text-5xl font-bold text-[#f9bf00]">Categories</h1>
+                <p className="text-md md:text-xl mt-4 text-gray-500">Active toys for smart and active kids. Bring fun and non-stop<br />  learning for your little ones.</p>
             </div>
             <div className="px-20 pb-20 mt-10">
                 <Tabs>
@@ -44,28 +44,28 @@ const ShopByCategory = () => {
                     </TabList>
 
                     <TabPanel className="mt-10">
-                        <div className='grid grid-cols-3 gap-5'>
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                             {
                                 bath.map(item => <ProductCard key={item._id} item={item}></ProductCard>)
                             }
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <div className='grid grid-cols-3 gap-5'>
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                             {
                                 plush.map(item => <ProductCard key={item._id} item={item}></ProductCard>)
                             }
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <div className='grid grid-cols-3 gap-5'>
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                             {
                                 puppet.map(item => <ProductCard key={item._id} item={item}></ProductCard>)
                             }
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <div className='grid grid-cols-3 gap-5'>
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                             {
                                 puzzle.map(item => <ProductCard key={item._id} item={item}></ProductCard>)
                             }

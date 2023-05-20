@@ -3,12 +3,12 @@
 const Gallery = () => {
     return (
         <div className="mt-20">
-            <div className="text-center">
-                <h1 className="text-5xl font-bold text-[#f9bf00]">Our Gallery</h1>
-                <p className="text-xl mt-4 text-gray-500">Active toys for smart and active kids. Bring fun and non-stop<br />  learning for your little ones.</p>
+            <div className="text-center p-5">
+                <h1 className="text-3xl md:text-5xl font-bold text-[#f9bf00]">Our Gallery</h1>
+                <p className="text-md md:text-xl mt-4 text-gray-500">Active toys for smart and active kids. Bring fun and non-stop<br />  learning for your little ones.</p>
             </div>
             <div className="flex justify-center my-20">
-                <div className="grid grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <div className="h-[250px] w-[300px] carousel carousel-vertical rounded-box border-2 border-[#f9bf00]">
                         <div className="carousel-item h-full">
                             <img className="w-full h-full" src="https://images.unsplash.com/photo-1533859583213-c4e11b597ee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" />

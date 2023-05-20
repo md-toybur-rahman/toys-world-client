@@ -1,14 +1,18 @@
 
 
-const ToyRow = ({toy}) => {
-    const {toy_name, picture, price, seller_name, sub_category, available_quantity} = toy;
+const ToyRow = ({ toy }) => {
+    const { toy_name, picture, price, seller_name, sub_category, available_quantity } = toy;
     return (
         <tr>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                            <img src={picture} alt="Avatar Tailwind CSS Component" />
+                            {
+                                picture ?
+                                    <img src={picture} alt={toy_name} /> :
+                                    <img src="https://i.ibb.co/KxN1BZH/kindpng-3765565-1.png" alt="" />
+                            }
                         </div>
                     </div>
                     <div>
