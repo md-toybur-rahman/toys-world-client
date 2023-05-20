@@ -1,7 +1,7 @@
 
 import { useContext, useEffect, useState } from "react";
-import ToyRow from "../AllToys/ToyRow";
 import { AuthContext } from "../../Providers/AuthProvider";
+import MyToysRow from "./MyToysRow";
 
 
 const MyToys = () => {
@@ -34,7 +34,7 @@ const MyToys = () => {
                         </thead>
                         <tbody>
                             {
-                                toys.map(toy => <ToyRow key={toy._id} toy={toy}></ToyRow>)
+                                toys.map(toy => <MyToysRow key={toy._id} toy={toy}></MyToysRow>)
                             }
                         </tbody>
 

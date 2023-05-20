@@ -13,10 +13,10 @@ const AddNewToy = () => {
         const toy_name = form.toy_name.value;
         const sub_category = form.sub_category.value;
         const price = form.price.value;
-        const quantity = form.quantity.value;
+        const available_quantity = form.quantity.value;
         const photo = form.photo.value;
-        const newToy = {email, seller_name, toy_name, sub_category, price, quantity, photo}
-        console.log(email, seller_name, toy_name, sub_category, price, quantity, photo);
+        const newToy = {email, seller_name, toy_name, sub_category, price, available_quantity, photo}
+        console.log(email, seller_name, toy_name, sub_category, price, available_quantity, photo);
         fetch('http://localhost:5000/toys', {
             method: 'POST',
             headers: {
