@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { ScrollContext } from "../../Providers/ScrollProvider";
 
 
 
 
 const AddNewToy = () => {
+    const scrollHandler = useContext(ScrollContext)
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleAddItem = event => {
@@ -41,6 +43,7 @@ const AddNewToy = () => {
                         confirmButtonText: 'Ok'
                     })
                     navigate('/myToys');
+                    scrollHandler();
                 }
             })
     }

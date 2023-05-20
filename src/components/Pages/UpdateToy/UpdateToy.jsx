@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { ScrollContext } from "../../Providers/ScrollProvider";
 
 
 const UpdateToy = () => {
+    const scrollHandler = useContext(ScrollContext)
     const toy = useLoaderData();
     const navigate = useNavigate();
     const { _id, toy_name, picture, price, description, sub_category, available_quantity } = toy[0];
@@ -35,6 +38,7 @@ const UpdateToy = () => {
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
+                    scrollHandler();
                     navigate('/myToys');
                 }
             })
