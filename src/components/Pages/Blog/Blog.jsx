@@ -17,12 +17,12 @@ const Blog = () => {
                 <div>
                     <div className="border-4 border-[#f9bf00] rounded-lg p-5">
                         <h1 className="text-lg font-bold">Question: Compare SQL and NoSQL databases?</h1>
-                        <p className="text-lg mt-2"><span className="font-bold">Answer: </span></p>
+                        <p className="text-lg mt-2"><span className="font-bold">Answer: SQL databases are table-based and SQL databases is relational database. its use structured query language.And SQL databases are better for multi-row transactions. In Other hand, NoSQL databases are non-relational and dynamic schemas for unstructured data.</span></p>
                     </div>
                 </div>
                 <div>
                     <div className="border-4 border-[#f9bf00] rounded-lg p-5">
-                        <h1 className="text-lg font-bold">Question: What is express js? What is Nest JS?</h1>
+                        <h1 className="text-lg font-bold">Question: What is express js? What is Next JS?</h1>
                         <p className="text-lg mt-2"><span className="font-bold">Answer: </span></p>
                     </div>
                 </div>

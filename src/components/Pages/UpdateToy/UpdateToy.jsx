@@ -116,7 +116,7 @@ const UpdateToy = () => {
                                         <span className="font-bold">Rating</span>
                                     </label>
                                     <label>
-                                        <input type="number" name="rating" placeholder="Product Rating" className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" required />
+                                        <input type="text" name="rating" placeholder="Product Rating" className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" required />
                                     </label>
                                 </div>
                             </div>
