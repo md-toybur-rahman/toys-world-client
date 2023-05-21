@@ -15,7 +15,20 @@ const MyToys = () => {
             .then(data => {
                 setToys(data);
             })
-    }, [user])
+    }, [user]);
+
+    const handleSorting = () => {
+        fetch(`https://toys-world-server.vercel.app/myToys?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                const sortedToys = data.sort((a, b) => {
+                    return a.price - b.price;
+                })
+                setToys(sortedToys);
+            })
+
+
+    }
 
     const handleDelete = (id) => {
         const swalWithBootstrapButtons = Swal.mixin({
@@ -69,6 +82,9 @@ const MyToys = () => {
         <div className="mb-20">
             <h1 className="text-center my-16 text-5xl font-bold text-[#f9bf00]">My Toys</h1>
             <div className="mx-10">
+                <div className="text-right mr-20 mb-10">
+                    <button onClick={handleSorting} className="btn hover:btn-active btn-outline hover:btn-ghost btn-xs ml-4">Sort By Price</button>
+                </div>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         {/* head */}

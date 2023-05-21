@@ -32,8 +32,6 @@ const Blog = () => {
                 </div>
             </div>
 
-            {/* <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzdmZjE0OWRlNDFlNjRlZDJjZGYwYmZhNmE2OWQxYWNlNzUzOTAxMSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/8L0Pky6C83SzkzU55a/giphy.gif" alt="" /> */}
-
         </div>
     );
 };
