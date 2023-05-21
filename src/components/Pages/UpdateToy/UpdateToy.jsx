@@ -10,7 +10,7 @@ const UpdateToy = () => {
     const toy = useLoaderData();
     useTitle('Update Toy')
     const navigate = useNavigate();
-    const { _id, toy_name, picture, price, description, sub_category, available_quantity } = toy[0];
+    const { _id, toy_name, picture, price, description, sub_category, available_quantity, rating } = toy[0];
     const handleUpdateItem = event => {
         event.preventDefault();
         const form = event.target;
@@ -116,7 +116,7 @@ const UpdateToy = () => {
                                         <span className="font-bold">Rating</span>
                                     </label>
                                     <label>
-                                        <input type="text" name="rating" placeholder="Product Rating" className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" required />
+                                        <input type="text" name="rating" placeholder="Product Rating" defaultValue={rating} className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" required />
                                     </label>
                                 </div>
                             </div>
