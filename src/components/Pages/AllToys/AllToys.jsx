@@ -20,10 +20,14 @@ const AllToys = () => {
     const handleSearch = event => {
         event.preventDefault();
         const form = event.target;
-        const search = form.search.value;
+        const search = (form.search.value).toLowerCase();
         console.log(search);
-        const filter = toys.filter(toy => toy.toy_name == search);
-        setToys(filter);
+        fetch('https://toys-world-server.vercel.app/allToys')
+            .then(res => res.json())
+            .then(data => {
+                const filter = data.filter(toy => (toy.toy_name).toLowerCase().includes(search));
+                setToys(filter);
+            })
     }
     return (
         <div className="mb-20">
