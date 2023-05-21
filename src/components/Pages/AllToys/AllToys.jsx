@@ -65,7 +65,7 @@ const AllToys = () => {
                     </table>
 
                     <div className="flex justify-center mt-10">
-                        <button onClick={handleShowAll} className={`btn-custom ${active ? 'hidden' : ''}`}>Show all</button>
+                        <button onClick={handleShowAll} className={`btn-custom ${active ? 'hidden' : ''} ${toys.length < 20 ? 'hidden': 'block'}`}>Show all</button>
                     </div>
                 </div>
             </div>

@@ -37,10 +37,10 @@ const ShopByCategory = () => {
             <div className="px-20 pb-20 mt-10">
                 <Tabs>
                     <TabList className='text-lg font-bold border-b-2 border-[#f9bf00]'>
-                        <Tab>Bath</Tab>
-                        <Tab>Plush</Tab>
-                        <Tab>Puppet</Tab>
-                        <Tab>Puzzle</Tab>
+                        <Tab>Teddy Bear</Tab>
+                        <Tab>Horse</Tab>
+                        <Tab>Dogs</Tab>
+                        <Tab>Cat</Tab>
                     </TabList>
 
                     <TabPanel className="mt-10">

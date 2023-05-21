@@ -15,37 +15,39 @@ const ProductCard = ({ item }) => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleUser = () => {
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success',
-                cancelButton: 'btn btn-danger'
-            },
-            buttonsStyling: false
-        })
+        if (!user) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
 
-        swalWithBootstrapButtons.fire({
-            title: 'Please Login',
-            text: "You have to log in first to view details",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Login',
-            cancelButtonText: 'No, cancel!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                navigate('/login')
+            swalWithBootstrapButtons.fire({
+                title: 'Please Login',
+                text: "You have to log in first to view details",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Login',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login')
 
-            } else if (
-                /* Read more about handling dismissals below */
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire(
-                    'Cancelled',
-                    'Your imaginary file is safe :)',
-                    'error'
-                )
-            }
-        })
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            })
+        }
     }
 
     return (
@@ -69,7 +71,7 @@ const ProductCard = ({ item }) => {
                         <span className='ms-2'>{rating}</span>
                     </div>
                     <div className="card-actions justify-start">
-                        <Link onClick={handleUser} to={user ? `/toyDetails/${_id}` : ''} state={{ from: location }}><button onClick={scrollHandler} className="btn-custom">View Details</button></Link>
+                        <Link onClick={handleUser} to={`/toyDetails/${_id}`} state={{ from: location }}><button onClick={scrollHandler} className="btn-custom">View Details</button></Link>
                     </div>
                 </div>
             </div>

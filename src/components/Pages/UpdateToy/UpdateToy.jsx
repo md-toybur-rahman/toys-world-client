@@ -70,10 +70,10 @@ const UpdateToy = () => {
                                     <label>
                                         <select className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" id="" name="sub_category" required>
                                             <option value={sub_category? sub_category : "Chose One Category"} selected disabled hidden>{sub_category}</option>
-                                            <option value="Bath">Bath</option>
-                                            <option value="Plush">Plush</option>
-                                            <option value="Puppet">Puppet</option>
-                                            <option value="Puzzle">Puzzle</option>
+                                            <option value="Bath">Teddy Bear</option>
+                                            <option value="Plush">Horse</option>
+                                            <option value="Puppet">Dogs</option>
+                                            <option value="Puzzle">Cat</option>
                                         </select>
                                     </label>
                                 </div>
