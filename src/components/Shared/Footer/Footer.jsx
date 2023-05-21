@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='border-t-2 border-[#f9bf00] px-10 md:px-28 py-20 text-center md:text-start mt-20'>
+        <div className='border-t-2 border-[#f9bf00] px-10 md:px-28 pt-20 pb-5 text-center md:text-start mt-20'>
             <div className='flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-0 justify-between'>
                 <div className='flex flex-col items-center md:items-start gap-5 mb-10'>
                     <div className="logo flex gap-2 items-center mb-3">
@@ -47,6 +47,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            <p className='text-center mt-10 text-gray-400 text-xs'>© 2020 Toys World. All rights reserved.</p>
         </div>
     );
 };

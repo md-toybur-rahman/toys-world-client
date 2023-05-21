@@ -7,7 +7,6 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Navbar = () => {
     const { logOut, user } = useContext(AuthContext);
     const [menu, setMenu] = useState(false)
-    console.log(menu);
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -21,27 +20,22 @@ const Navbar = () => {
                 {/* <MdMenu></MdMenu>
                 <MdClose className='hidden'></MdClose> */}
                 <label className="swap swap-rotate">
-
-
                     <input type="checkbox" />
 
                     {
                         !menu ?
-                        <MdMenu onClick={() => setMenu(!menu)}></MdMenu>
-                            
+                            <MdMenu onClick={() => setMenu(!menu)}></MdMenu>
+
                             : <MdClose onClick={() => setMenu(!menu)}></MdClose>
                     }
-
-
-
-
-
                 </label>
             </div>
-            <div className="logo flex gap-2 items-center">
-                <img className='w-[40px] md:w-[50px]' src="https://i.ibb.co/KxN1BZH/kindpng-3765565-1.png" alt="" />
-                <h1 className='text-2xl md:text-3xl font-extrabold text-'>T<span className='text-[#f9bf00]'>O</span>YS W<span className='text-[#f9bf00]'>O</span>RLD</h1>
-            </div>
+            <Link>
+                <div className="logo flex gap-2 items-center">
+                    <img className='w-[40px] md:w-[50px]' src="https://i.ibb.co/KxN1BZH/kindpng-3765565-1.png" alt="" />
+                    <h1 className='text-2xl md:text-3xl font-extrabold text-'>T<span className='text-[#f9bf00]'>O</span>YS W<span className='text-[#f9bf00]'>O</span>RLD</h1>
+                </div>
+            </Link>
             <div className="hidden md:flex gap-7 font-bold text-[16px]">
                 <NavLink className={({ isActive }) => isActive ? 'text-[#f9bf00]' : 'hover:text-[#f9bf00] duration-300'} to='/'>Home</NavLink>
                 <NavLink className={({ isActive }) => isActive ? 'text-[#f9bf00]' : 'hover:text-[#f9bf00] duration-300'} to='/allToys'>All Toys</NavLink>
@@ -80,9 +74,13 @@ const Navbar = () => {
             </div>
             <div className='flex items-center gap-7'>
                 <div className="dropdown dropdown-left dropdown-center dropdown-hover">
-                    <label tabIndex={0}>
-                        <img className='rounded-full w-[40px] md:w-[60px]' src={!user?.photoURL ? "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/user-profile-icon.png" : user.photoURL} alt="" />
-                    </label>
+                    {
+                        user ?
+                            <label tabIndex={0}>
+                                <img className='rounded-full w-[40px] md:w-[60px]' src={!user?.photoURL ? "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/user-profile-icon.png" : user.photoURL} alt="" />
+                            </label> :
+                            ''
+                    }
                     {
                         user?.displayName ?
                             <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box min-w-[100px]">

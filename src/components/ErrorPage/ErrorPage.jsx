@@ -1,8 +1,10 @@
 import { Link, useRouteError } from "react-router-dom";
+import useTitle from "../../CustomHooks/useTitle";
 
 
 const ErrorPage = () => {
     const error = useRouteError();
+    useTitle('Error')
     return (
         <div>
             <div className="flex justify-center my-auto">

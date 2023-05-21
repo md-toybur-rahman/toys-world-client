@@ -1,10 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import ToyRow from "./ToyRow";
+import useTitle from "../../../CustomHooks/useTitle";
 
 
 const AllToys = () => {
     const toys = useLoaderData();
-    console.log(toys);
+    useTitle('All Toys')
     return (
         <div className="mb-20">
             <h1 className="text-center my-16 text-5xl font-bold text-[#f9bf00]">All Toys</h1>

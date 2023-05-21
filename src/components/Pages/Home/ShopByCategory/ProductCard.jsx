@@ -1,13 +1,53 @@
 import { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ScrollContext } from "../../../Providers/ScrollProvider";
 import { Rating } from '@smastrom/react-rating'
+import { AuthContext } from "../../../Providers/AuthProvider";
+import Swal from "sweetalert2";
+
+
 
 
 const ProductCard = ({ item }) => {
     const scrollHandler = useContext(ScrollContext)
     const { _id, picture, toy_name, price, rating } = item;
     const location = useLocation();
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const handleUser = () => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Please Login',
+            text: "You have to log in first to view details",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Login',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/login')
+
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
+            }
+        })
+    }
+
     return (
         <div data-aos="zoom-in" data-aos-duration="1000">
             <div className="card w-52 md:w-96 bg-base-100 shadow-xl border-2 border-[#f9bf00] rounded-lg">
@@ -29,7 +69,7 @@ const ProductCard = ({ item }) => {
                         <span className='ms-2'>{rating}</span>
                     </div>
                     <div className="card-actions justify-start">
-                        <Link to={`/toyDetails/${_id}`} state={{ from: location }}><button onClick={scrollHandler} className="btn-custom">View Details</button></Link>
+                        <Link onClick={handleUser} to={user ? `/toyDetails/${_id}` : ''} state={{ from: location }}><button onClick={scrollHandler} className="btn-custom">View Details</button></Link>
                     </div>
                 </div>
             </div>

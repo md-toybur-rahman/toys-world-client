@@ -3,12 +3,14 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { ScrollContext } from "../../Providers/ScrollProvider";
+import useTitle from "../../../CustomHooks/useTitle";
 
 
 
 
 const AddNewToy = () => {
-    const scrollHandler = useContext(ScrollContext)
+    const scrollHandler = useContext(ScrollContext);
+    useTitle('Add Toy');
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleAddItem = event => {
@@ -95,7 +97,6 @@ const AddNewToy = () => {
                                     <label>
                                         {/* <input type="text" name="sub_category" placeholder="Sub Category" className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" required /> */}
                                         <select className="h-[50px] rounded-lg px-4 md:w-[350px] w-[280px]  bg-gray-200" id="" name="sub_category" required>
-                                            <option value="Chose A Category"  disabled hidden selected>Chose A Category</option>
                                             <option value="Bath">Bath</option>
                                             <option value="Plush">Plush</option>
                                             <option value="Puppet">Puppet</option>

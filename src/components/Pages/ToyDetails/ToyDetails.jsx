@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { ScrollContext } from "../../Providers/ScrollProvider";
 import { Rating } from '@smastrom/react-rating'
+import useTitle from "../../../CustomHooks/useTitle";
 
 
 const ToyDetails = () => {
-    const scrollHandler = useContext(ScrollContext)
+    const scrollHandler = useContext(ScrollContext);
+    useTitle('Details')
     const toy = useLoaderData();
     const { toy_name, picture, price, seller_name, sub_category, available_quantity, description, rating } = toy[0];
     const location = useLocation();
